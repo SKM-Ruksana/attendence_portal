@@ -1,0 +1,23 @@
+create database attendance_system;
+use attendance_system;
+create table employee(email varchar(30)primary key, password varchar(30));
+create table attendance(
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    attendance_date DATE NOT NULL,
+    login_time TIME NOT NULL,
+    logout_time TIME DEFAULT NULL,
+    work_hours DECIMAL(5,2),
+    status VARCHAR(20),
+    UNIQUE (email, attendance_date),
+    FOREIGN KEY (email) REFERENCES employee(email)
+);
+INSERT INTO employee (email, password)
+VALUES
+('rahul@gmail.com', 'rahul123'),
+('anita@gmail.com', 'anita123'),
+('suresh@gmail.com', 'suresh123'),
+('kiran@gmail.com', 'kiran123');
+select*from attendance;
+
+
